@@ -1,30 +1,24 @@
 ﻿/*
-Задача 65: Задайте значения M и N. Напишите программу, которая
- выведет все натуральные числа в промежутке от M до N.
+Задача 67: Напишите программу, 
+которая будет принимать на вход число и
+ возвращать сумму его цифр.
  */
 
 
 using static System.Console;
 Clear();
 
-int max = int.Parse(ReadLine());
-int min = int.Parse(ReadLine());
+int number = int.Parse(ReadLine());
 
 
-WriteLine($"{GetStringNumbers(max, min)}");
 
-string GetStringNumbers(int n, int m)
-{
-    if (n > m)
-    {
-    if(n == m) return  $"{m}";
-    return GetStringNumbers(n-1, m)+" "+$" {n}";
-     }
-    else
-    {
-        if(m == n) return  $"{n}";
-        return GetStringNumbers(m-1, n)+" "+$" {m}";
-    }
+WriteLine($"{GetStringSumNum(number)}");
+
+int GetStringSumNum(int num)
+{   
+    if(num / 10 == 0) return  num;
+    return GetStringSumNum(num / 10 ) +  num % 10;
+      
 }
 
 
