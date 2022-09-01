@@ -1,17 +1,30 @@
-﻿/*Задача 63: Задайте значение N. 
-Напишите программу, которая выведет все 
-натуральные числа в промежутке от 1 до N.*/
+﻿/*
+Задача 65: Задайте значения M и N. Напишите программу, которая
+ выведет все натуральные числа в промежутке от M до N.
+ */
 
 
 using static System.Console;
 Clear();
 
-int num = int.Parse(ReadLine());
+int max = int.Parse(ReadLine());
+int min = int.Parse(ReadLine());
 
-WriteLine($"{GetStringNumbers(num)}");
 
-string GetStringNumbers(int n)
+WriteLine($"{GetStringNumbers(max, min)}");
+
+string GetStringNumbers(int n, int m)
 {
-    if(n == 1) return  "1";
-    return GetStringNumbers(n-1)+" "+$" {n}";
+    if (n > m)
+    {
+    if(n == m) return  $"{m}";
+    return GetStringNumbers(n-1, m)+" "+$" {n}";
+     }
+    else
+    {
+        if(m == n) return  $"{n}";
+        return GetStringNumbers(m-1, n)+" "+$" {m}";
+    }
 }
+
+
