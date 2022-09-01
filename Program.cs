@@ -1,24 +1,27 @@
 ﻿/*
-Задача 67: Напишите программу, 
-которая будет принимать на вход число и
- возвращать сумму его цифр.
+Задача 69: Напишите программу, которая на вход принимает два числа A и B,
+ и возводит число А в целую степень B с помощью рекурсии
  */
 
 
 using static System.Console;
 Clear();
 
-int number = int.Parse(ReadLine());
+int number1 = int.Parse(ReadLine());
+int number2 = int.Parse(ReadLine());
+
+
+int num = number1 ^ number2;
 
 
 
-WriteLine($"{GetStringSumNum(number)}");
+WriteLine($"{GetPow(number1, number2)}");
 
-int GetStringSumNum(int num)
+int GetPow(int num1, int num2)
 {   
-    if(num / 10 == 0) return  num;
-    return GetStringSumNum(num / 10 ) +  num % 10;
+    if(num2 == 0) return  1;
+    return GetPow(num1, num2 -1 ) * num1;
       
 }
-
+//WriteLine(num);
 
