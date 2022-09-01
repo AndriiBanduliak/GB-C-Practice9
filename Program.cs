@@ -19,8 +19,8 @@ WriteLine($"{GetPow(number1, number2)}");
 
 int GetPow(int num1, int num2)
 {   
-    if(num2 == 0) return  1;
-    return GetPow(num1, num2 -1 ) * num1;
+    return (num2 == 0)? 1:GetPow(num1, num2 -1 ) * num1;
+    
       
 }
 //WriteLine(num);
